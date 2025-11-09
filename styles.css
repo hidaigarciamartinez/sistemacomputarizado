@@ -20,7 +20,12 @@ body {
    font-size: 10px;
    font-family:Verdana, Tahoma, sans-serif;
 }
-
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh; /* ocupa espacio debajo del encabezado */
+}
 .login-card {
   background: white;
   padding: 2rem;
@@ -171,4 +176,5 @@ table {
   margin: 5px 0;
   font-weight: bold;
 }
+
 
