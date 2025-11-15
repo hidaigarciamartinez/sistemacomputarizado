@@ -16,19 +16,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2️⃣ Elementos
   const loginBtn = document.getElementById("login-btn");
-  const registerBtn = document.getElementById("register-btn");
   const logoutBtn = document.getElementById("logout-btn");
   const addBtn = document.getElementById("add-btn");
   const inventoryBody = document.getElementById("inventory-table");
 
   // 3️⃣ Login y registro
-  loginBtn.onclick = () => {
-    const email = document.getElementById("email").value;
-    const pass = document.getElementById("password").value;
-    auth.signInWithEmailAndPassword(email, pass)
-      .then(() => alert("¡Sesión iniciada correctamente!"))
-      .catch(e => alert("Error login: " + e.message));
-  };
+  const correosPermitidos = [
+  "hidaigarciamartinez@gmail.com",
+  "hidaiamisadaigarciamartinez@gmail.com",
+  "tlqhidaigarciamartinez@gmail.com"
+];
+
+loginBtn.onclick = () => {
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("password").value;
+
+  if (!correosPermitidos.includes(email)) {
+    alert("Este correo no está autorizado para acceder.");
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email, pass)
+    .then(() => alert("¡Sesión iniciada correctamente!"))
+    .catch(e => alert("Error login: " + e.message));
+};
+
 
   registerBtn.onclick = () => {
     const email = document.getElementById("email").value;
@@ -272,3 +284,4 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
