@@ -9,6 +9,7 @@ body {
   margin: 0 auto;     /* centra horizontalmente */
   padding: 20px;
   text-align: center;
+   margin-right: 300px;
  
 }
 
@@ -20,6 +21,15 @@ body {
   font-size: 10px;
   font-family:Verdana, Tahoma, sans-serif;
   transform: translateX(200px);
+}
+
+.container3 {
+  max-width: 1200px;  /* ajusta el ancho máximo */
+  margin: 0 auto;     /* centra horizontalmente */
+  padding: 20px;
+  text-align: center;
+   transform: translateX(200px);
+ 
 }
 .login-container {
   display: flex;
@@ -167,6 +177,7 @@ table {
   width: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
+ margin-left: 400px;
 }
 
 .indicadores h3 {
@@ -178,7 +189,6 @@ table {
   margin: 5px 0;
   font-weight: bold;
 }
-
 
 
 
