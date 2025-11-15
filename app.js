@@ -43,13 +43,6 @@ loginBtn.onclick = () => {
 };
 
 
-  registerBtn.onclick = () => {
-    const email = document.getElementById("email").value;
-    const pass = document.getElementById("password").value;
-    auth.createUserWithEmailAndPassword(email, pass)
-      .then(() => alert("Usuario registrado ✅"))
-      .catch(e => alert("Error registro: " + e.message));
-  };
 
   logoutBtn.onclick = () => auth.signOut();
 
@@ -285,5 +278,6 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
 
