@@ -10,7 +10,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
-  
   <div class="container">
   <header class="encabezado">
   <h1>Inventario de Equipos Médicos</h1>
@@ -21,7 +20,7 @@
   <h1>CENTRO MÉDICO NAVAL</h1>
   <h1>SUBDIRECCIÓN DE INGENIERÍA BIOMÉDICA</h1>
 </div>
-  <div class="login-container">
+<div class="login-container">
 <div class="container">
   <div id="auth-section" class="login-card">
   <h2>Iniciar Sesión</h2>
@@ -31,6 +30,7 @@
     <button id="login-btn">Iniciar sesión</button>
   </div>
 </div>
+
 
 
   <div id="app-section" style="display:none;"> 
@@ -49,7 +49,8 @@
     <input type="text" id="estadosituacional" placeholder="Estado Situacional">
     <input type="text" id="archivo" placeholder="Enlace de archivo (Drive o Supabase)">
     <input type="date" id="fecha-mantenimiento">
-
+    <input type="text" id="observaciones" placeholder="Observaciones">
+    <input type="text" id="realizo-mantenimiento" placeholder="Realizó mantenimiento">
     <button id="add-btn">Agregar</button>
   </div>
 
@@ -69,9 +70,11 @@
         <th>Ubicación</th>
         <th>Estado Situacional</th>
         <th>Archivo</th>
-         <th>Fecha de último mantenimiento preventivo</th>
-         <th>Fecha de próximo mantenimiento preventivo</th>
+         <th>Fecha de último mantenimiento</th>
+         <th>Fecha de próximo mantenimiento</th>
         <th>Estado mantenimiento preventivo</th>
+        <th>Observaciones</th>
+         <th>Realizó mantenimiento</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -96,6 +99,7 @@
 </div>
 </body>
 </html>
+
 
 
 
