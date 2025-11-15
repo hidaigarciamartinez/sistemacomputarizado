@@ -23,14 +23,6 @@ body {
   transform: translateX(200px);
 }
 
-.container3 {
-  max-width: 1200px;  /* ajusta el ancho máximo */
-  margin: 0 auto;     /* centra horizontalmente */
-  padding: 20px;
-  text-align: center;
-   transform: translateX(200px);
- 
-}
 .login-container {
   display: flex;
   justify-content: center;
@@ -189,6 +181,8 @@ table {
   margin: 5px 0;
   font-weight: bold;
 }
+
+
 
 
 
