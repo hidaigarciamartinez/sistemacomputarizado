@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   "hidaigarciamartinez@gmail.com",
   "hidaiamisadaigarciamartinez@gmail.com",
   "tlqhidaigarciamartinez@gmail.com"
-  "vanmb94@outlook.com"
 ];
 
 loginBtn.onclick = () => {
@@ -41,7 +40,6 @@ loginBtn.onclick = () => {
     .then(() => alert("¡Sesión iniciada correctamente!"))
     .catch(e => alert("Error login: " + e.message));
 };
-
 
 
   logoutBtn.onclick = () => auth.signOut();
@@ -102,6 +100,8 @@ function formatearMesAnio(fechaStr) {
        <td>${formatearMesAnio(d.fecha_ultimo_mantenimiento)}</td>
        <td>${formatearMesAnio(d.fecha_mantenimiento)}</td>
         <td class="${estadoClass}">${d.estatus || "Pendiente"}</td>
+        <td>${d.observaciones}</td>
+         <td>${d.realizo_mantenimiento}</td>
        <td>
   <button class="${statusClass}" ${disabledAttr} onclick="updateStatus('${doc.id}')">${buttonText}</button>
   <button onclick="editData('${doc.id}')">Editar</button>
@@ -160,7 +160,9 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
       estadosituacional:document.getElementById("estadosituacional").value,
       archivo: document.getElementById("archivo").value,
       fecha_mantenimiento: document.getElementById("fecha-mantenimiento").value,
-      estatus: "Pendiente"
+      estatus: "Pendiente",
+      observaciones:document.getElementById("observaciones").value,
+      realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value
     };
 
     const editId = addBtn.getAttribute("data-edit-id");
@@ -201,6 +203,8 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
         document.getElementById("estadosituacional").value=d.estadosituacional;
         document.getElementById("archivo").value = d.archivo;
         document.getElementById("fecha-mantenimiento").value = d.fecha_mantenimiento;
+        document.getElementById("observaciones").value= d.observaciones;
+        document.getElementById("realizo-mantenimiento").value= d.realizo_mantenimiento;
 
         addBtn.setAttribute("data-edit-id", id);
         document.getElementById("form-title").innerText = "Editar equipo";
@@ -278,6 +282,5 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
-
 
 
