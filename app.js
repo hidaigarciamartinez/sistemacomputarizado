@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   "hidaigarciamartinez@gmail.com",
   "hidaiamisadaigarciamartinez@gmail.com",
   "tlqhidaigarciamartinez@gmail.com"
+  "vanmb94@outlook.com"
 ];
 
 loginBtn.onclick = () => {
@@ -284,4 +285,5 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
