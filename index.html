@@ -15,7 +15,7 @@
   <h1>Inventario de Equipos Médicos</h1>
 </header>
 
-
+ 
   <div class="container2">
   <h1>CENTRO MÉDICO NAVAL</h1>
   <h1>SUBDIRECCIÓN DE INGENIERÍA BIOMÉDICA</h1>
@@ -40,6 +40,7 @@
   <div id="form-section">
     <div class="container2">
     <h2 id="form-title">INGRESO DE EQUIPO ÁREA DE URGENCIAS</h2></div>
+    <div class="container2">
     <input type="text" id="equipo" placeholder="Equipo">
     <input type="text" id="marca" placeholder="Marca">
     <input type="text" id="id" placeholder="ID">
@@ -49,15 +50,16 @@
     <input type="text" id="estadosituacional" placeholder="Estado Situacional">
     <input type="text" id="archivo" placeholder="Enlace de archivo (Drive o Supabase)">
     <input type="date" id="fecha-mantenimiento">
+    <input type="hidden" id="estatus">
     <input type="text" id="observaciones" placeholder="Observaciones">
     <input type="text" id="realizo-mantenimiento" placeholder="Realizó mantenimiento">
     <button id="add-btn">Agregar</button>
   </div>
-
+</div>
   <hr>
 
   <!-- 🔹 Tabla de inventario -->
-  
+  <div class="container">
   <table border="1">
     <thead>
       <tr>
@@ -80,7 +82,7 @@
     </thead>
     <tbody id="inventory-table"></tbody>
   </table>
-  
+  </div>
     <button id="update-status-btn">Verificar mantenimientos vencidos</button>
     <!-- 🔹 Indicador de gestión de mantenimiento -->
 <div id="indicadores" class="indicadores">
@@ -99,8 +101,6 @@
 </div>
 </body>
 </html>
-
-
 
 
 
