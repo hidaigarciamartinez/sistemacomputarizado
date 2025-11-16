@@ -1,33 +1,74 @@
+/* ============================
+   ESTILOS GENERALES
+   ============================ */
 body {
   font-family: Arial, sans-serif;
   background: #f4f6f8;
   margin: 0;
   padding: 20px;
 }
-.container {
-  max-width: 1200px;  /* ajusta el ancho máximo */
-  margin: 0 auto;     /* centra horizontalmente */
-  padding: 20px;
+
+/* 🔹 Contenedor maestro */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;     /* centra TODO */
+}
+
+
+/* ============================
+   ENCABEZADO
+   ============================ */
+.encabezado {
+  background-image: url("portadapagina.png");
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0;
   text-align: center;
-  
- 
+  color: white;
+  border-radius: 12px;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+/* ============================
+   CONTENEDORES SECUNDARIOS
+   ============================ */
+.container,
+.container2,
+.container-table {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
 }
 
 .container2 {
-  max-width: 1200px;  /* ajusta el ancho máximo */
-  margin: 0 auto;     /* centra horizontalmente */
-  padding: 15px;
-  text-align: center;
-  font-size: 10px;
-  font-family:Verdana, Tahoma, sans-serif;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
+
+/* ============================
+   LOGIN
+   ============================ */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 40vh; /* ocupa espacio debajo del encabezado */
 }
+
 .login-card {
   background: white;
   padding: 2rem;
@@ -49,6 +90,10 @@ body {
   margin-top: 10px;
 }
 
+
+/* ============================
+   BOTONES
+   ============================ */
 button {
   padding: 10px 15px;
   margin: 5px;
@@ -64,10 +109,29 @@ button.secondary {
   background: #4caf50;
 }
 
+button.realizado {
+  background: #4caf50; /* verde */
+  color: white;
+}
+
+button.vencido {
+  background: #e53935; /* rojo */
+  color: white;
+}
+
+button.pendiente {
+  background: #4C61E4; /* azul */
+  color: white;
+}
+
+
+/* ============================
+   TABLA
+   ============================ */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin: 20px auto;
   background: white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 10px;
@@ -90,77 +154,35 @@ table tr:hover {
   background: #f1f1f1;
 }
 
-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
 
-button.realizado {
-  background: #4caf50; /* verde */
-  color: white;
-}
-
-button.vencido {
-  background: #e53935; /* rojo */
-  color: white;
-}
-
-button.pendiente {
-  background: #4C61E4; /* azul */
-  color: white;
-}
-
-/* Colores del estado de mantenimiento preventivo */
+/* ============================
+   ESTADOS (colores)
+   ============================ */
 .estado-vencido {
-  background-color: #ff4d4d; /* rojo */
+  background-color: #ff4d4d;
   color: white;
   font-weight: bold;
   text-align: center;
 }
 
 .estado-pendiente {
-  background-color: #ffcc00; /* amarillo */
+  background-color: #ffcc00;
   color: black;
   font-weight: bold;
   text-align: center;
 }
 
 .estado-realizado {
-  background-color: #4caf50; /* verde */
+  background-color: #4caf50;
   color: white;
   font-weight: bold;
   text-align: center;
 }
 
-.encabezado {
-  background-image: url("portadapagina.png");
-  background-size: cover;
-  background-position: center;
-  padding: 70px 0;
-  text-align: center;
-  color: white;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  margin: 0 auto;   /* centra automáticamente */
-  max-width: 1200px;
-}
 
-.encabezado h1 {
-  margin: 0;
-  font-size: 2em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-table {
-  margin: 20px auto;   /* 🔹 centra horizontalmente la tabla */
-  display: table;      /* asegura el comportamiento estándar */
-}
-
+/* ============================
+   INDICADORES
+   ============================ */
 .indicadores {
   margin: 20px auto;
   padding: 15px;
@@ -169,7 +191,6 @@ table {
   width: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
- 
 }
 
 .indicadores h3 {
@@ -181,6 +202,7 @@ table {
   margin: 5px 0;
   font-weight: bold;
 }
+
 
 
 
