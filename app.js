@@ -95,11 +95,11 @@ function formatearMesAnio(fechaStr) {
         <td>${d.modelo}</td>
         <td>${d.serie}</td>
         <td>${d.ubicacion}</td>
-        <td>${d.estadosituacional}</td>
         <td><a href="${d.archivo}" target="_blank">Ver archivo</a></td>
        <td>${formatearMesAnio(d.fecha_ultimo_mantenimiento)}</td>
        <td>${formatearMesAnio(d.fecha_mantenimiento)}</td>
         <td class="${estadoClass}">${d.estatus || "Pendiente"}</td>
+        <td>${d.estadosituacional}</td>
         <td>${d.observaciones}</td>
          <td>${d.realizo_mantenimiento}</td>
        <td>
@@ -157,10 +157,10 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
       modelo: document.getElementById("modelo").value,
       serie: document.getElementById("serie").value,
       ubicacion: document.getElementById("ubicacion").value,
-      estadosituacional:document.getElementById("estadosituacional").value,
       archivo: document.getElementById("archivo").value,
       fecha_mantenimiento: document.getElementById("fecha-mantenimiento").value,
       estatus: "Pendiente",
+      estadosituacional:document.getElementById("estadosituacional").value,
       observaciones:document.getElementById("observaciones").value,
       realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value
     };
@@ -200,9 +200,9 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
         document.getElementById("modelo").value = d.modelo;
         document.getElementById("serie").value = d.serie;
         document.getElementById("ubicacion").value = d.ubicacion;
-        document.getElementById("estadosituacional").value=d.estadosituacional;
         document.getElementById("archivo").value = d.archivo;
         document.getElementById("fecha-mantenimiento").value = d.fecha_mantenimiento;
+        document.getElementById("estadosituacional").value=d.estadosituacional;
         document.getElementById("observaciones").value= d.observaciones;
         document.getElementById("realizo-mantenimiento").value= d.realizo_mantenimiento;
 
@@ -282,5 +282,6 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
 
