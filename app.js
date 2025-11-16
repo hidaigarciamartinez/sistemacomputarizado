@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   "hidaigarciamartinez@gmail.com",
   "hidaiamisadaigarciamartinez@gmail.com",
   "tlqhidaigarciamartinez@gmail.com"
+  
 ];
 
 loginBtn.onclick = () => {
@@ -157,10 +158,10 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
       modelo: document.getElementById("modelo").value,
       serie: document.getElementById("serie").value,
       ubicacion: document.getElementById("ubicacion").value,
+      estadosituacional:document.getElementById("estadosituacional").value,
       archivo: document.getElementById("archivo").value,
       fecha_mantenimiento: document.getElementById("fecha-mantenimiento").value,
-      estatus: "Pendiente",
-      estadosituacional:document.getElementById("estadosituacional").value,
+      estatus: document.getElementById("estatus").value || "Pendiente",
       observaciones:document.getElementById("observaciones").value,
       realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value
     };
@@ -200,9 +201,10 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
         document.getElementById("modelo").value = d.modelo;
         document.getElementById("serie").value = d.serie;
         document.getElementById("ubicacion").value = d.ubicacion;
+        document.getElementById("estadosituacional").value=d.estadosituacional;
         document.getElementById("archivo").value = d.archivo;
         document.getElementById("fecha-mantenimiento").value = d.fecha_mantenimiento;
-        document.getElementById("estadosituacional").value=d.estadosituacional;
+        document.getElementById("estatus").value = d.estatus;
         document.getElementById("observaciones").value= d.observaciones;
         document.getElementById("realizo-mantenimiento").value= d.realizo_mantenimiento;
 
@@ -283,5 +285,8 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
   
 });
 
+
+
+   
 
 
