@@ -96,11 +96,11 @@ function formatearMesAnio(fechaStr) {
         <td>${d.modelo}</td>
         <td>${d.serie}</td>
         <td>${d.ubicacion}</td>
+        <td>${d.estadosituacional}</td>
+        <td>${d.observaciones}</td>
        <td>${formatearMesAnio(d.fecha_ultimo_mantenimiento)}</td>
        <td>${formatearMesAnio(d.fecha_mantenimiento)}</td>
         <td class="${estadoClass}">${d.estatus || "Pendiente"}</td>
-        <td>${d.estadosituacional}</td>
-        <td>${d.observaciones}</td>
          <td>${d.realizo_mantenimiento}</td>
          <td><a href="${d.archivo}" target="_blank">Ver archivo</a></td>
        <td>
@@ -159,10 +159,10 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
       serie: document.getElementById("serie").value,
       ubicacion: document.getElementById("ubicacion").value,
       estadosituacional:document.getElementById("estadosituacional").value,
+       observaciones:document.getElementById("observaciones").value,
       archivo: document.getElementById("archivo").value,
       fecha_mantenimiento: document.getElementById("fecha-mantenimiento").value,
       estatus: document.getElementById("estatus").value || "Pendiente",
-      observaciones:document.getElementById("observaciones").value,
       realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value
     };
 
@@ -283,3 +283,4 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
