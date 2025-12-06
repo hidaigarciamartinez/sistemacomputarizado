@@ -160,10 +160,11 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
       ubicacion: document.getElementById("ubicacion").value,
       estadosituacional:document.getElementById("estadosituacional").value,
        observaciones:document.getElementById("observaciones").value,
-      archivo: document.getElementById("archivo").value,
       fecha_mantenimiento: document.getElementById("fecha-mantenimiento").value,
-      estatus: document.getElementById("estatus").value || "Pendiente",
-      realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value
+       estatus: document.getElementById("estatus").value || "Pendiente",
+       realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value,
+      archivo: document.getElementById("archivo").value
+     
     };
 
     const editId = addBtn.getAttribute("data-edit-id");
@@ -283,5 +284,6 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
 
