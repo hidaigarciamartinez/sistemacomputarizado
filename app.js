@@ -203,7 +203,7 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
         document.getElementById("ubicacion").value = d.ubicacion;
         document.getElementById("estadosituacional").value=d.estadosituacional;
         document.getElementById("fecha-mantenimiento").value = d.fecha_mantenimiento;
-        document.getElementById("estatus").value = d.estatus;
+        document.getElementById("estatus").value  = d.estatus;
         document.getElementById("observaciones").value= d.observaciones;
         document.getElementById("realizo-mantenimiento").value= d.realizo_mantenimiento;
         document.getElementById("archivo").value = d.archivo;
@@ -216,21 +216,32 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
 
   // 8️⃣ Cambiar estatus y actualizar fechas
 window.updateStatus = function(id) {
-  const hoy = new Date();
-  const fechaActual = hoy.toISOString().split('T')[0];
 
-  // Calcular nueva fecha de mantenimiento (6 meses después)
-  const proximo = new Date(hoy);
-  proximo.setMonth(proximo.getMonth() + 6);
-  const fechaProximo = proximo.toISOString().split('T')[0];
+  db.collection("equipos").doc(id).get().then(doc => {
+    if (!doc.exists) return;
+    
+    const d = doc.data();
 
-  db.collection("equipos").doc(id).update({
-    estatus: "Realizado",
-    fecha_ultimo_mantenimiento: fechaActual,
-    fecha_mantenimiento: fechaProximo
-  }).then(() => {
-    alert("Mantenimiento actualizado ✅");
-    loadInventory();
+    // 1️⃣ Tomar la fecha programada como "último mantenimiento"
+    const fechaProgramada = new Date(d.fecha_mantenimiento);
+
+    // 2️⃣ Calcular la próxima fecha (fecha programada + 6 meses)
+    const proximo = new Date(fechaProgramada);
+    proximo.setMonth(proximo.getMonth() + 6);
+
+    const fechaUltimo = fechaProgramada.toISOString().split('T')[0];
+    const fechaProxima = proximo.toISOString().split('T')[0];
+
+    // 3️⃣ Actualizar Firestore
+    db.collection("equipos").doc(id).update({
+      estatus: "Realizado",
+      fecha_ultimo_mantenimiento: fechaUltimo,
+      fecha_mantenimiento: fechaProxima
+    }).then(() => {
+      alert("Mantenimiento actualizado correctamente ✔");
+      loadInventory();
+    });
+
   });
 };
 
