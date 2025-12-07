@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1️⃣ Configuración Firebase
+  //  Configurar Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyB05ZOHYNasz-OXz0WUc9ItU9V_UNIiCZo",
     authDomain: "inven-aed0b.firebaseapp.com",
@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const auth = firebase.auth();
   const db = firebase.firestore();
 
-  // 2️⃣ Elementos
+  // Elementos de los botones
   const loginBtn = document.getElementById("login-btn");
   const logoutBtn = document.getElementById("logout-btn");
   const addBtn = document.getElementById("add-btn");
   const inventoryBody = document.getElementById("inventory-table");
 
-  // 3️⃣ Login y registro
+  // Login y registro
   const correosPermitidos = [
   "hidaigarciamartinez@gmail.com",
   "hidaiamisadaigarciamartinez@gmail.com",
@@ -73,13 +73,13 @@ function formatearMesAnio(fechaStr) {
     snapshot.forEach(doc => {
       const d = doc.data();
 
-      // Determinar clase de color según el estado
+      // Determinar color del estado
       let estadoClass = "";
       if (d.estatus === "Vencido") estadoClass = "estado-vencido";
       else if (d.estatus === "Realizado") estadoClass = "estado-realizado";
       else estadoClass = "estado-pendiente";
 
-      // Configuración del botón según estado
+      // Config. del color botón según estado
       let statusClass = "pendiente";
       let buttonText = "Marcar Realizado";
       if (d.estatus === "Realizado") { statusClass = "realizado"; buttonText = "Realizado"; }
@@ -87,7 +87,7 @@ function formatearMesAnio(fechaStr) {
 
       const disabledAttr = (d.estatus === "Realizado") ? "disabled" : "";
 
-      const tr = document.createElement("tr");
+      const tr = document.createElement("tr"); //Fila de la tabla para ir llenando datos
       tr.innerHTML = `
         <td>${index}</td>
         <td>${d.equipo}</td>
@@ -96,11 +96,11 @@ function formatearMesAnio(fechaStr) {
         <td>${d.modelo}</td>
         <td>${d.serie}</td>
         <td>${d.ubicacion}</td>
-        <td>${d.estadosituacional}</td>
-        <td>${d.observaciones}</td>
        <td>${formatearMesAnio(d.fecha_ultimo_mantenimiento)}</td>
        <td>${formatearMesAnio(d.fecha_mantenimiento)}</td>
         <td class="${estadoClass}">${d.estatus || "Pendiente"}</td>
+        <td>${d.estadosituacional}</td>
+        <td>${d.observaciones}</td>
          <td>${d.realizo_mantenimiento}</td>
          <td><a href="${d.archivo}" target="_blank">Ver archivo</a></td>
        <td>
@@ -127,7 +127,7 @@ function formatearMesAnio(fechaStr) {
       index++;
     });
 
-    // 🔹 Calcular indicadores
+    // Calculo del indicador
 let totalEquipos = snapshot.size;
 let realizados = 0;
 
@@ -149,7 +149,7 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
 }
 
 
-  // 6️⃣ Agregar o Editar
+  // Agregar o Editar
   addBtn.onclick = () => {
     const data = {
       equipo: document.getElementById("equipo").value,
@@ -159,11 +159,11 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
       serie: document.getElementById("serie").value,
       ubicacion: document.getElementById("ubicacion").value,
       estadosituacional:document.getElementById("estadosituacional").value,
-       observaciones:document.getElementById("observaciones").value,
+      archivo: document.getElementById("archivo").value,
       fecha_mantenimiento: document.getElementById("fecha-mantenimiento").value,
       estatus: document.getElementById("estatus").value || "Pendiente",
-      realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value,
-       archivo: document.getElementById("archivo").value
+      observaciones:document.getElementById("observaciones").value,
+      realizo_mantenimiento:document.getElementById("realizo-mantenimiento").value
     };
 
     const editId = addBtn.getAttribute("data-edit-id");
@@ -189,7 +189,7 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
     });
   };
 
-  // 7️⃣ Editar equipo
+  // Editar equipo
   window.editData = function(id){
     db.collection("equipos").doc(id).get().then(doc => {
       if(doc.exists){
@@ -202,9 +202,9 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
         document.getElementById("serie").value = d.serie;
         document.getElementById("ubicacion").value = d.ubicacion;
         document.getElementById("estadosituacional").value=d.estadosituacional;
-        document.getElementById("observaciones").value= d.observaciones;
         document.getElementById("fecha-mantenimiento").value = d.fecha_mantenimiento;
         document.getElementById("estatus").value  = d.estatus;
+        document.getElementById("observaciones").value= d.observaciones;
         document.getElementById("realizo-mantenimiento").value= d.realizo_mantenimiento;
         document.getElementById("archivo").value = d.archivo;
         addBtn.setAttribute("data-edit-id", id);
@@ -214,7 +214,7 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
     });
   };
 
-  // 8️⃣ Cambiar estatus y actualizar fechas
+  // Cambiar estatus y actualizar fechas
 window.updateStatus = function(id) {
 
   db.collection("equipos").doc(id).get().then(doc => {
@@ -222,17 +222,17 @@ window.updateStatus = function(id) {
     
     const d = doc.data();
 
-    // 1️⃣ Tomar la fecha programada como "último mantenimiento"
+    // Tomar la fecha programada como "último mantenimiento"
     const fechaProgramada = new Date(d.fecha_mantenimiento);
 
-    // 2️⃣ Calcular la próxima fecha (fecha programada + 6 meses)
+    // Calcular la próxima fecha (fecha programada + 6 meses)
     const proximo = new Date(fechaProgramada);
     proximo.setMonth(proximo.getMonth() + 6);
 
     const fechaUltimo = fechaProgramada.toISOString().split('T')[0];
     const fechaProxima = proximo.toISOString().split('T')[0];
 
-    // 3️⃣ Actualizar Firestore
+    // Actualizar Firestore
     db.collection("equipos").doc(id).update({
       estatus: "Realizado",
       fecha_ultimo_mantenimiento: fechaUltimo,
@@ -247,7 +247,7 @@ window.updateStatus = function(id) {
 
 
 
-  // 🗑️ Eliminar equipo
+  // Eliminar equipo
 window.deleteData = function(id) {
   if (confirm("¿Seguro que deseas eliminar este equipo?")) {
     db.collection("equipos").doc(id).delete().then(() => {
@@ -258,7 +258,7 @@ window.deleteData = function(id) {
 };
 
 
-  // 🔹 Verificar y actualizar automáticamente el estado de mantenimiento
+  // Verificar y actualizar  el estado de mantenimiento
 document.getElementById("update-status-btn")?.addEventListener("click", () => {
   const hoy = new Date();
 
@@ -273,12 +273,10 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
       let nuevoEstatus = d.estatus;
 
-      // Si faltan 30 días o menos → Pendiente
-      if (diferenciaDias <= 30 && diferenciaDias > 0 && d.estatus !== "Pendiente") {
+      // Si faltan 30 días o menos esta Pendiente
+      if (diferenciaDias <= 30 && diferenciaDias > -30 ) {
         nuevoEstatus = "Pendiente";
       }
-
-      // Si ya pasó la fecha → Vencido
       if (diferenciaDias <= -30 && d.estatus !== "Vencido") {
         nuevoEstatus = "Vencido";
       }
@@ -294,10 +292,6 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
-
-
-
-
 
 
 
