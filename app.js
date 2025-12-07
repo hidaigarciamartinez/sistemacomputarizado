@@ -204,7 +204,7 @@ document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "
         document.getElementById("estadosituacional").value=d.estadosituacional;
         document.getElementById("observaciones").value= d.observaciones;
         document.getElementById("fecha-mantenimiento").value = d.fecha_mantenimiento;
-        document.getElementById("estatus").value  = d.estatus;
+        document.getElementById("estatus").value  = || "Pendiente";
         document.getElementById("realizo-mantenimiento").value= d.realizo_mantenimiento;
         document.getElementById("archivo").value = d.archivo;
         addBtn.setAttribute("data-edit-id", id);
@@ -294,6 +294,7 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
 
 
