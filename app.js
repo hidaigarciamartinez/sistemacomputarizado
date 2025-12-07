@@ -266,8 +266,7 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
     snapshot.forEach(doc => {
       const d = doc.data();
 
-      if (!d.fecha_mantenimiento || d.estatus === "Realizado") return;
-
+      if (!d.fecha_mantenimiento) return;
       const fechaMantenimiento = new Date(d.fecha_mantenimiento);
       const diferenciaDias = Math.floor((fechaMantenimiento - hoy) / (1000 * 60 * 60 * 24));
 
@@ -292,6 +291,7 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
 
 
