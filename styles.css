@@ -5,8 +5,8 @@ body {
   padding: 20px;
 }
 .container {
-  max-width: 1200px;  /* ajusta el ancho máximo */
-  margin: 0 auto;     /* centra horizontalmente */
+  max-width: 1200px;  
+  margin: 0 auto;     
   padding: 20px;
   text-align: center;
   
@@ -14,8 +14,8 @@ body {
 }
 
 .container2 {
-  max-width: 1200px;  /* ajusta el ancho máximo */
-  margin: 0 auto;     /* centra horizontalmente */
+  max-width: 1200px;  
+  margin: 0 auto;     
   padding: 15px;
   text-align: center;
   font-size: 10px;
@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 40vh; /* ocupa espacio debajo del encabezado */
+  min-height: 40vh; 
 }
 .login-card {
   background: white;
@@ -145,7 +145,7 @@ button.pendiente {
   border-radius: 12px;
   margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  margin: 0 auto;   /* centra automáticamente */
+  margin: 0 auto;  
   max-width: 1200px;
 }
 
@@ -157,8 +157,8 @@ button.pendiente {
 }
 
 table {
-  margin: 20px auto;   /* 🔹 centra horizontalmente la tabla */
-  display: table;      /* asegura el comportamiento estándar */
+  margin: 20px auto;   
+  display: table;     
 }
 
 .indicadores {
@@ -186,6 +186,7 @@ table th,
 table td {
     text-align: center;
 }
+
 
 
 
