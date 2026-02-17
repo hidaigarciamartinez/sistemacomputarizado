@@ -46,17 +46,17 @@
     }
    #contenedor_evidencias {
   display: flex;
-  flex-direction: column;      /* apiladas en columna */
-  align-items: center;         /* centradas horizontalmente */
-  gap: 20px;                   /* espacio vertical entre ellas */
+  flex-direction: column;      
+  align-items: center;         
+  gap: 20px;                   
   margin-top: 10px;
 }
 
 #contenedor_evidencias img {
-  width: 80%;                  /* ancho uniforme */
-  max-width: 600px;            /* tope opcional */
-  height: 300px;               /* 🔑 alto fijo para todas */
-  object-fit: contain;         /* recorta para llenar el cuadro sin deformar */
+  width: 80%;                  
+  max-width: 600px;            
+  height: 300px;               
+  object-fit: contain;         
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -100,9 +100,9 @@
 
 /* Estilo tabla fecha /ID */
    .tabla-fecha-id {
-  position: absolute;   /* ahora relativo al div .orden */
-  top: 20px;            /* separa 20px del borde superior interno */
-  right: 20px;          /* separa 20px del borde derecho interno */
+  position: absolute;   
+  top: 20px;            
+  right: 20px;          
 }
 
 
@@ -115,7 +115,7 @@
 }
 
 .tabla-fecha-id th {
-  background: #cfd8e6;     /* tono gris/azulado como el ejemplo */
+  background: #cfd8e6;     
   font-weight: bold;
   padding: 6px 12px;
   border: 1px solid #000;
@@ -131,7 +131,7 @@
 /* Estilo tabla numero de orden */
 
 .tabla-num-orden {
-  position: absolute;   /* se posiciona dentro de la hoja */
+  position: absolute;
   top: 20px;
   left: 20px;
 }
@@ -415,7 +415,7 @@ async function generarPDF() {
   // Guardamos contenido original
   const contenidoOriginal = ordenElement.innerHTML;
 
-  // Construimos un HTML temporal para la segunda página
+  //  HTML temporal para la segunda página
   ordenElement.innerHTML = `
    
   <br> <br>
@@ -456,3 +456,4 @@ async function generarPDF() {
 
 </body>
 </html>
+
