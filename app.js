@@ -45,7 +45,7 @@ loginBtn.onclick = () => {
 
   logoutBtn.onclick = () => auth.signOut();
 
-  // 4️⃣ Mostrar app si hay usuario
+  //  Mostrar app si hay usuario
   auth.onAuthStateChanged(user => {
     if(user){
       document.getElementById("auth-section").style.display = "none";
@@ -57,7 +57,7 @@ loginBtn.onclick = () => {
     }
   });
 
-  // 🔹 Función para mostrar solo mes y año (Ejemplo: "Octubre 2025")
+  //  Función para mostrar solo mes y año (Ejemplo: "Octubre 2025")
 function formatearMesAnio(fechaStr) {
   if (!fechaStr) return "-";
   const fecha = new Date(fechaStr);
@@ -65,7 +65,7 @@ function formatearMesAnio(fechaStr) {
   return fecha.toLocaleDateString('es-ES', opciones);
 }
 
-  // 5️⃣ Cargar inventario
+  //  Cargar inventario
   function loadInventory() { 
   inventoryBody.innerHTML = "";
   db.collection("equipos").get().then(snapshot => {
@@ -140,7 +140,7 @@ snapshot.forEach(doc => {
 
 let porcentaje = totalEquipos > 0 ? ((realizados / totalEquipos) * 100).toFixed(1) : 0;
 
-// 🔹 Mostrar resultados en la interfaz
+// Mostrar resultados en la interfaz
 document.getElementById("total-equipos").textContent = totalEquipos;
 document.getElementById("equipos-realizados").textContent = realizados;
 document.getElementById("porcentaje-mantenimiento").textContent = porcentaje + "%";
@@ -292,6 +292,7 @@ document.getElementById("update-status-btn")?.addEventListener("click", () => {
 
   
 });
+
 
 
 
