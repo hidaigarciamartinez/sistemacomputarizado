@@ -214,7 +214,7 @@
 
     const formBusqueda = document.getElementById('busqueda');
     const formDatos = document.getElementById('formulario');
-// 🔹 Si viene un ID en la URL, cargar directamente ese equipo
+//  Si viene un ID en la URL, cargar directamente ese equipo
 window.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
   const idParam = params.get("id");
@@ -253,7 +253,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const id = document.getElementById('id_equipo').value.trim();
 
   try {
-    // 🔹 Buscar documento cuyo campo "id" coincida con el ID ingresado
+    // Buscar documento cuyo campo "id" coincida con el ID ingresado
     const snapshot = await db.collection("equipos").where("id", "==", id).get();
 
     if (snapshot.empty) {
@@ -262,11 +262,11 @@ window.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // 🔹 Tomar el primer resultado
+    //  Tomar el primer resultado
     const doc = snapshot.docs[0];
     const datos = doc.data();
 
-    // 🔹 Llenar los campos del formulario
+    //  Llenar los campos del formulario
     document.getElementById('r_equipo_form').textContent = datos.equipo;
     document.getElementById('r_marca_form').textContent = datos.marca;
     document.getElementById('r_modelo_form').textContent = datos.modelo;
@@ -294,7 +294,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         formDatos.style.display = 'none';
       }
     });
-// 🔹 Función para convertir las imágenes a base64 comprimidas
+//  Función para convertir las imágenes a base64 comprimidas
 function fileToBase64Compressed(file, maxWidth = 800, quality = 0.7) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -324,7 +324,7 @@ function fileToBase64Compressed(file, maxWidth = 800, quality = 0.7) {
   });
 }
 
-    // 🔹 Función para generar la orden y procesar las evidencias
+    //  Función para generar la orden y procesar las evidencias
 async function enviarDatos() {
   try {
     const form = document.getElementById('formulario');
@@ -365,7 +365,7 @@ async function enviarDatos() {
     datos.firmaResponsable = firmas.firmaResponsable;
     datos.firmaSupervisor = firmas.firmaSupervisor;
 
-    // Leer evidencias (si hay)
+    // Leer evidencias (si es que las hay)
     const inputFiles = document.getElementById('evidencias').files;
     if (inputFiles.length > 0) {
       console.log("Procesando evidencias, por favor espera...");
@@ -375,7 +375,7 @@ async function enviarDatos() {
       datos.evidencias = base64Images;
     }
 
-    // Guardar datos completos en sessionStorage
+    // Guardar datos completos en sessionstorage
     sessionStorage.setItem("orden2", JSON.stringify(datos));
 
     // Abrir la orden
@@ -453,4 +453,5 @@ async function enviarDatos() {
     });
   </script>
 </body>
+
 </html>
